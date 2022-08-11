@@ -1,0 +1,41 @@
+# standard-deviation
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float calculateSD(float arr[]);
+
+int main() {
+  int i;
+  float arr[10];
+//taking input from the user
+  cout << "Enter 10 elements: ";
+  for(i = 0; i < 10; ++i) {
+    cin >> arr[i];
+  }
+
+  cout << endl << "Standard Deviation = " << calculateSD(arr);
+
+  return 0;
+}
+
+float calculateSD(float arr[]) {
+
+  float sum = 0.0, mean, standardDeviation = 0.0;
+  int i;
+
+  for(i = 0; i < 10; ++i) {
+  //calculating the sum of the numbers
+    sum += arr[i];
+  }
+//calculating the avaerage of the numbers 
+  mean = sum / 10;
+
+  for(i = 0; i < 10; ++i) {
+  //formula for calculating the variance
+    standardDeviation += pow(arr[i] - mean, 2);
+  }
+// output the standard deviation
+  return sqrt(standardDeviation / 10);
+}
